@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page not found: Andrea Simone Foderaro</title>
+  <meta name="robots" content="noindex">
+  <script>
+    // The site used to live under /my-resume/. Send old deep links to the same path at the root.
+    var path = location.pathname;
+    if (path.indexOf('/my-resume/') === 0) {
+      location.replace(path.slice('/my-resume'.length) + location.search + location.hash);
+    }
+  </script>
+  <style>
+    :root { --bg: #f3f2f2; --text: #201e1d; --accent: #0088b0; }
+    @media (prefers-color-scheme: dark) {
+      :root { --bg: #171615; --text: #ece9e6; --accent: #4fc3e0; }
+    }
+    body { margin: 0; padding: 40px 20px; background: var(--bg); color: var(--text);
+           font: 1.0625rem/1.6 Georgia, serif; }
+    a { color: var(--accent); text-underline-offset: 3px; }
+  </style>
+</head>
+<body>
+  <p>Page not found. <a href="/">Go to the home page</a>.</p>
+</body>
+</html>
