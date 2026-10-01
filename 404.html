@@ -8,7 +8,10 @@
   <script>
     // The site used to live under /my-resume/. Send old deep links to the same path at the root.
     var path = location.pathname;
-    if (path.indexOf('/my-resume/') === 0) {
+    if (path.indexOf('Andrea_Simone_Foderaro_CV') !== -1) {
+      // The CV PDF was removed; the page itself is the CV now.
+      location.replace('/');
+    } else if (path.indexOf('/my-resume/') === 0) {
       location.replace(path.slice('/my-resume'.length) + location.search + location.hash);
     }
   </script>
