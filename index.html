@@ -429,6 +429,9 @@
       list-style: none;
       padding: 0;
     }
+    .card-links { display: flex; gap: var(--space-3); margin: auto 0 0; font-size: 0.8125rem; }
+    .card-links a { color: var(--color-accent); }
+    .projects-list + .card-meta { margin-top: var(--space-4); }
 
     .post summary { cursor: pointer; list-style: none; }
     .post summary::-webkit-details-marker { display: none; }
@@ -826,17 +829,31 @@
         </div>
         <div class="projects-list">
 
-          <article class="card" aria-labelledby="proj-classifier">
-            <div class="card-kicker">Master's Thesis</div>
-            <h3 class="card-title" id="proj-classifier">Automatic Classification of Software Issue Reports</h3>
-            <p class="card-body">Developed an automated bug classifier in collaboration with Mozilla. Framed as an NLP classification problem — evaluated SVM, CNN, and Decision Trees, then selected the model with the best precision/recall balance. Hand-labelled 250+ bug reports to build the training dataset; wrote the full pipeline from data ingestion to model evaluation.</p>
+          <article class="card" aria-labelledby="proj-mcp">
+            <div class="card-kicker">Personal Project</div>
+            <h3 class="card-title" id="proj-mcp">MCP Server in .NET</h3>
+            <p class="card-body">An MCP server on .NET 8 and ASP.NET Core that exposes a REST API and a GraphQL API to AI clients as six tools, plus three resources. The SDK publishes each tool's JSON Schema but doesn't enforce it at runtime, so every argument is checked twice: by the schema and by guard clauses in code. There are xUnit tests for the validation, snapshot tests for the published tool and resource lists, and integration tests.</p>
             <ul class="card-stack" aria-label="Technologies">
-              <li><span class="tag">Python</span></li>
-              <li><span class="tag">NLP</span></li>
-              <li><span class="tag">SVM</span></li>
-              <li><span class="tag">CNN</span></li>
-              <li><span class="tag">Decision Trees</span></li>
+              <li><span class="tag">C#</span></li>
+              <li><span class="tag">.NET 8</span></li>
+              <li><span class="tag">ASP.NET Core</span></li>
+              <li><span class="tag">MCP</span></li>
+              <li><span class="tag">xUnit</span></li>
             </ul>
+            <p class="card-links"><a href="https://github.com/fodecoder/mcp-server-example" target="_blank" rel="noopener noreferrer" aria-label="mcp-server-example on GitHub (opens in new tab)">Code on GitHub</a></p>
+          </article>
+
+          <article class="card" aria-labelledby="proj-fanta">
+            <div class="card-kicker">Personal Project</div>
+            <h3 class="card-title" id="proj-fanta">Fantasy Football Auction App</h3>
+            <p class="card-body">A web app my friends and I use to run our Fantacalcio auctions, built to handle leagues with different rules. Auction state is always derived from an immutable log of purchases. React and TypeScript on the front, a thin Node API on Render and PostgreSQL on Neon, with signed-cookie sessions and a read-only guest role.</p>
+            <ul class="card-stack" aria-label="Technologies">
+              <li><span class="tag">TypeScript</span></li>
+              <li><span class="tag">React</span></li>
+              <li><span class="tag">Node.js</span></li>
+              <li><span class="tag">PostgreSQL</span></li>
+            </ul>
+            <p class="card-links"><a href="https://github.com/fodecoder/fanta-helper" target="_blank" rel="noopener noreferrer" aria-label="fanta-helper on GitHub (opens in new tab)">Code on GitHub</a></p>
           </article>
 
           <article class="card" aria-labelledby="proj-editor">
@@ -849,11 +866,49 @@
             </ul>
           </article>
 
+          <article class="card" aria-labelledby="proj-classifier">
+            <div class="card-kicker">Master's Thesis</div>
+            <h3 class="card-title" id="proj-classifier">Automatic Classification of Software Issue Reports</h3>
+            <p class="card-body">Developed an automated bug classifier in collaboration with Mozilla. Framed as an NLP classification problem — evaluated SVM, CNN, and Decision Trees, then selected the model with the best precision/recall balance. Hand-labelled 250+ bug reports to build the training dataset; wrote the full pipeline from data ingestion to model evaluation.</p>
+            <ul class="card-stack" aria-label="Technologies">
+              <li><span class="tag">Python</span></li>
+              <li><span class="tag">NLP</span></li>
+              <li><span class="tag">SVM</span></li>
+              <li><span class="tag">CNN</span></li>
+              <li><span class="tag">Decision Trees</span></li>
+            </ul>
+            <p class="card-links"><span class="card-meta">Code not public</span><a href="#post-triage">Read the write-up</a></p>
+          </article>
+
+          <article class="card" aria-labelledby="proj-schedulers">
+            <div class="card-kicker">Personal Projects</div>
+            <h3 class="card-title" id="proj-schedulers">Constraint-Solver Schedulers</h3>
+            <p class="card-body">Two schedulers built on OR-Tools CP-SAT. One generates a primary school's weekly timetable: rules like class coverage and two-hour subjects in consecutive slots are hard constraints, and softer preferences become weighted penalties. The other plans children's afternoon study blocks under a daily cap, and a separate validator re-checks every constraint without touching the solver model.</p>
+            <ul class="card-stack" aria-label="Technologies">
+              <li><span class="tag">Python</span></li>
+              <li><span class="tag">OR-Tools</span></li>
+              <li><span class="tag">CP-SAT</span></li>
+            </ul>
+            <p class="card-links"><a href="https://github.com/fodecoder/teacher-schedule" target="_blank" rel="noopener noreferrer" aria-label="teacher-schedule on GitHub (opens in new tab)">School timetable</a><a href="https://github.com/fodecoder/cp-sat-study" target="_blank" rel="noopener noreferrer" aria-label="cp-sat-study on GitHub (opens in new tab)">Study planner</a></p>
+          </article>
+
+          <article class="card" aria-labelledby="proj-coloring">
+            <div class="card-kicker">Personal Project</div>
+            <h3 class="card-title" id="proj-coloring">Photo to Coloring Page</h3>
+            <p class="card-body">A Python library and CLI that turns a photo into printable line art for coloring. The default engine is a pretrained line-art network, picked after measuring it against classical OpenCV pipelines with an ablation script; the OpenCV styles still work with no ML dependencies installed. Engines plug in behind one interface, so the CLI doesn't change when a new one is added.</p>
+            <ul class="card-stack" aria-label="Technologies">
+              <li><span class="tag">Python</span></li>
+              <li><span class="tag">OpenCV</span></li>
+              <li><span class="tag">PyTorch</span></li>
+              <li><span class="tag">pytest</span></li>
+            </ul>
+            <p class="card-links"><a href="https://github.com/fodecoder/photo-to-coloring-page" target="_blank" rel="noopener noreferrer" aria-label="photo-to-coloring-page on GitHub (opens in new tab)">Code on GitHub</a></p>
+          </article>
+
           <article class="card" aria-labelledby="proj-ml">
             <div class="card-kicker">Master's Projects</div>
             <h3 class="card-title" id="proj-ml">Conditional GAN &amp; ML Coursework</h3>
             <p class="card-body">A conditional GAN in PyTorch that generates 32×32 faces from 36 attributes of the LFW dataset, built with Antonio Epifani and Gianluca Amprimo. The project ran alongside the course lectures, so all three of us worked on every part. When I re-ran it in 2026, the generator had learned faces but almost ignored the attributes, and the README measures by how much. The same coursework included SVM, CNN and decision-tree models, some of them applied to bioinformatics problems.</p>
-            <p class="card-meta"><a href="https://github.com/fodecoder/cgan-lfw-attributes" target="_blank" rel="noopener noreferrer" aria-label="cgan-lfw-attributes on GitHub (opens in new tab)">github.com/fodecoder/cgan-lfw-attributes</a></p>
             <ul class="card-stack" aria-label="Technologies">
               <li><span class="tag">Python</span></li>
               <li><span class="tag">PyTorch</span></li>
@@ -861,9 +916,11 @@
               <li><span class="tag">SVM</span></li>
               <li><span class="tag">CNN</span></li>
             </ul>
+            <p class="card-links"><a href="https://github.com/fodecoder/cgan-lfw-attributes" target="_blank" rel="noopener noreferrer" aria-label="cgan-lfw-attributes on GitHub (opens in new tab)">Code on GitHub</a></p>
           </article>
 
         </div>
+        <p class="card-meta">Earlier and smaller work: a <a href="https://github.com/fodecoder/movie-gross-prediction" target="_blank" rel="noopener noreferrer" aria-label="movie-gross-prediction on GitHub (opens in new tab)">Data Spaces regression study</a> on box-office gross, <a href="https://github.com/fodecoder/flc-compiler-labs" target="_blank" rel="noopener noreferrer" aria-label="flc-compiler-labs on GitHub (opens in new tab)">compiler labs</a> in JFlex and CUP, a <a href="https://github.com/fodecoder/json-array-splitter" target="_blank" rel="noopener noreferrer" aria-label="json-array-splitter on GitHub (opens in new tab)">streaming JSON array splitter</a> in .NET, and an <a href="https://github.com/fodecoder/excel-order-aggregator" target="_blank" rel="noopener noreferrer" aria-label="excel-order-aggregator on GitHub (opens in new tab)">order aggregator</a> I wrote for a sports club.</p>
       </section>
 
       <!-- ── WRITING ── -->
@@ -873,7 +930,7 @@
         </div>
         <div class="writing-list">
 
-          <details class="card post">
+          <details class="card post" id="post-triage">
             <summary>
               <div class="post-summary-row">
                 <h3 class="card-title">What 250 hand-labeled bugs taught me about triage</h3>
@@ -1059,6 +1116,14 @@
     console.log("Hey — you opened the console on a resume site. I like that already.");
     console.log("If you're hiring: foderaroandrea@gmail.com");
     console.log("If you're not: github.com/fodecoder has the actual code, this page included.");
+
+    // Links like #post-triage point at a collapsed <details>: open it when it's the target.
+    function openFromHash() {
+      const el = document.getElementById(location.hash.slice(1));
+      if (el && el.tagName === 'DETAILS') el.open = true;
+    }
+    window.addEventListener('hashchange', openFromHash);
+    openFromHash();
   </script>
 </body>
 </html>
